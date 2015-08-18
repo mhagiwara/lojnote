@@ -7,16 +7,16 @@ def semantic_parse(parse):
             semantic_parse(node)
 
 FA_TAGS = {
-    'FA': 1,
-    'FE': 2,
-    'FI': 3,
-    'FO': 4,
-    'FU': 5
+    'fa': 1,
+    'fe': 2,
+    'fi': 3,
+    'fo': 4,
+    'fu': 5
 }
 
 
 def number_sumti_in_sentence(parse):
-    """Number sumtis in a sentence"""
+    """Number sumti in a sentence"""
 
     assert parse.name == 'sentence'
 
@@ -25,6 +25,7 @@ def number_sumti_in_sentence(parse):
         if node.name == 'bridiTail3':
             for subnode in node:
                 if subnode.name == 'terms':
+                    # put individual terms in sentence_elements
                     for subsubnode in subnode:
                         sentence_elements.append(subsubnode)
                 else:
@@ -32,11 +33,32 @@ def number_sumti_in_sentence(parse):
         else:
             sentence_elements.append(node)
 
+    # find the selbri element
+    selbri_cands = [node for node in sentence_elements if node.name in ['selbri3', 'BRIVLA']]
+    selbri_node = selbri_cands[0] if len(selbri_cands) > 0 else None
+
+    # now walk through sentence_elements
     sumti_counter = 1
-    print sentence_elements
+    for node in sentence_elements:
+        print node
+        if node.name == 'sumti6':
+            node.place = (selbri_node, sumti_counter)
+            print "sumti6 - %s (%s, %s)" % (node.lojban, selbri_node.lojban, sumti_counter)
+            # TODO: replace this with 'next unoccupied place'
+            sumti_counter += 1
+        elif node.name == 'term1':
+            if node[0].name == 'CMAVO' and node[0][0].name == 'FA':
+                sumti_counter = FA_TAGS[node[0][0][0]]
+                node[1].place = (selbri_node, sumti_counter)
+                print "term1 - %s (%s, %s)" % (node[1].lojban, selbri_node.lojban, sumti_counter)
+                # TODO: replace this with 'next unoccupied place'
+                sumti_counter += 1
+            else:
+                pass
 
-
-if __name__ == '__main__':
-    import camxes
-    parse = camxes.parse('mi klama fi le zarci bai lo broda')
-    print semantic_parse(parse)
+        elif node.name in ['selbri3', 'BRIVLA'] and sumti_counter == 1:
+            # TODO: replace this with 'next unoccupied place'
+            sumti_counter += 1
+        elif node.name == 'CMAVO':
+            node.place = (selbri_node, sumti_counter)
+            print "CMAVO - %s (%s, %s)" % (node.lojban, selbri_node.lojban, sumti_counter)
