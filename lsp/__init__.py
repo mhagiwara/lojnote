@@ -6,13 +6,9 @@ def semantic_parse(parse):
         else:
             semantic_parse(node)
 
-FA_TAGS = {
-    'fa': 1,
-    'fe': 2,
-    'fi': 3,
-    'fo': 4,
-    'fu': 5
-}
+FA_TAGS = { 'fa': 1, 'fe': 2, 'fi': 3, 'fo': 4, 'fu': 5 }
+
+SE_TAGS = { 'se': 2, 'te': 3, 've': 4, 'xe': 5 }
 
 
 def next_available_place(places, current_place):
@@ -36,6 +32,7 @@ def parse_bridi(parse):
     assert parse.name in ['sentence', 'bridiTail3', 'BRIVLA']
 
     print "Analyzing '%s'" % parse.lojban
+    print parse
 
     # put sentence elements into an array
     sentence_elements = []
@@ -43,7 +40,8 @@ def parse_bridi(parse):
         sentence_elements.append(parse)
     else:
         for node in parse:
-            if node.name == 'bridiTail3':
+            if (node.name == 'bridiTail3'
+                    or node.name == 'terms'):   # for more than one sumti before selbri (cu)
                 for subnode in node:
                     if subnode.name == 'terms':
                         # put individual terms in sentence_elements
@@ -55,7 +53,7 @@ def parse_bridi(parse):
                 sentence_elements.append(node)
 
     # find the selbri element
-    selbri_cands = [node for node in sentence_elements if node.name in ['selbri3', 'BRIVLA']]
+    selbri_cands = [node for node in sentence_elements if node.name in ['selbri3', 'BRIVLA', 'tanruUnit2']]
     selbri_node = selbri_cands[0] if len(selbri_cands) > 0 else None
 
     # now walk through sentence_elements and fill features
@@ -82,8 +80,20 @@ def parse_bridi(parse):
         else:
             print "\t%s: %s - no place" % (node.name, node.lojban)
 
-    # TODO - deal with SE here
+    # deal with SE and swap places
+    if (selbri_node.name == 'tanruUnit2'
+        and selbri_node[0].name == 'CMAVO'
+        and selbri_node[0][0].name == 'SE'):
+        swap_place = SE_TAGS[selbri_node[0][0][0]]
+        places[1], places[swap_place] = places[swap_place], places[1]
+        selbri_node = selbri_node[1]
 
+    if (selbri_node[-1].name == 'tanruUnit2'
+        and selbri_node[-1][0].name == 'CMAVO'
+        and selbri_node[-1][0][0].name == 'SE'):
+        swap_place = SE_TAGS[selbri_node[-1][0][0][0]]
+        places[1], places[swap_place] = places[swap_place], places[1]
+        # selbri_node[-1] = selbri_node[-1][1]  TODO: create a new selbri node without SE
 
     # put selbri
     places['selbri'] = selbri_node
