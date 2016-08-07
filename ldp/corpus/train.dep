@@ -1,64 +1,69 @@
 # Training corpus for Lojban dependency parser.
 
 # MAIN_BRIDI
-# PLACE
+# PLACE_N
 # SELBRI_SEPARATOR
 # CONVERTER
 # DESCRIPTOR
 # TANRU_GROUPER
 #   'bo' - modifies
 
+0   mi      1   PLACE_1
+1   klama   -1  MAIN_BRIDI
+2   le      3   DESCRIPTOR
+3   zarci   1   PLACE_2
+
 0   .i      -1
 1   la      2   DESCRIPTOR
-2   djan.   4   PLACE   1
+2   djan.   4   PLACE_1
 3   cu      4   SELBRI_SEPARATOR
 4   klama   0   MAIN_BRIDI
 5   le      6   DESCRIPTOR
-6   zarci   4   PLACE   2
+6   zarci   4   PLACE_2
 
 0   .i      -1
-1   mi      2   PLACE   1
+1   mi      2   PLACE_1
 2   tavla   0   MAIN_BRIDI
-3   do      2   PLACE   2
-4   zo'e    2   PLACE   3
-5   zo'e    2   PLACE   4
+3   do      2   PLACE_2
+4   zo'e    2   PLACE_3
+5   zo'e    2   PLACE_4
 
 0   .i      -1
-1   mi      4   PLACE   1
-2   ti      4   PLACE   2
+1   mi      4   PLACE_1
+2   ti      4   PLACE_2
 3   cu      4   SELBRI_SEPARATOR
 4   vecnu   0   MAIN_BRIDI
-5   ta      4   PLACE   3
+5   ta      4   PLACE_3
 
 0   .i      -1
-1   do      3   PLACE   2
+1   do      3   PLACE_2
 2   se      3   CONVERTER
 3   tavla   0   MAIN_BRIDI
-4   mi      3   PLACE   1
-5   ti      3   PLACE   3
+4   mi      3   PLACE_1
+5   ti      3   PLACE_3
 
 0   .i      -1
-1   mi      3   PLACE   1
+1   mi      3   PLACE_1
 2   sutra   3   SELTAU
 3   klama   0   MAIN_BRIDI
 4   la      5   DESCRIPTOR
-5   meris.  3   PLACE   2
+5   meris.  3   PLACE_2
 
 0   .i      -1
-1   ta      5   PLACE   1
+1   ta      5   PLACE_1
 2   cmalu   4   SELTAU
 3   bo      4   TANRU_GROUPER
 4   nixli   5   SELTAU
 5   ckule   0   MAIN_BRIDI
 
 0   .i      -1
-1   ta      4   PLACE   1
+1   ta      4   PLACE_1
 2   cmalu   3   SELTAU
 3   nixli   4   SELTAU
 4   ckule   0   MAIN_BRIDI
 
 0   .i      -1
-1   ta      7   PLACE   1
+1   ta      7   PLACE_1
 2   melbi   7   SELTAU
 3   cmalu   5   TANRU_GROUPER
 4   bo      5   TANRU_GROUPER
@@ -67,7 +72,7 @@
 7   ckule   0   MAIN_BRIDI
 
 0   .i      -1
-1   ta      5   PLACE   1
+1   ta      5   PLACE_1
 2   cmalu   5   SELTAU
 3   nixli   5   SELTAU
 4   bo      5   TANRU_GROUPER
@@ -77,7 +82,7 @@
 1   re      2   QUANTIFIER
 2   le      4   DESCRIPTOR
 3   ci      4   QUANTIFIER
-4   gerku   6   PLACE   1
+4   gerku   6   PLACE_1
 5   cu      6   SELBRI_SEPARATOR
 6   blabi   0   MAIN_BRIDI
 
