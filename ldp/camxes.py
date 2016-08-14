@@ -60,9 +60,9 @@ class CamxesNode(object):
                 return s
 
     def to_tagged_words(self):
-        """Yields pairs of (selma'o, word) pairs from this CamxesNode."""
+        """Yields pairs of (word, selma'o) pairs from this CamxesNode."""
         if len(self.children) == 1 and self.children[0].terminal:
-            yield (self.label, self.children[0].label)
+            yield (self.children[0].label, self.label)
         else:
             for tagged_word in chain.from_iterable(child.to_tagged_words()
                                                    for child in self.children):

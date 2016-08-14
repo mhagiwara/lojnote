@@ -1,7 +1,30 @@
 """Access methods for Lojban dependency corpus."""
 
-import re
-from ldp import DependencyArc
+from ldp import DefaultList, pad_tokens
+from ldp import camxes
+
+
+def parse_sent_str(sent_lines):
+    words = DefaultList('')
+    tags = DefaultList('')
+    heads = [None]
+    labels = [None]
+    for line in sent_lines:
+        fields = line.split()
+        word, head = fields[1], fields[2]
+        label = '' if len(fields) < 4 else fields[3]
+        words.append(intern(word))
+        heads.append(int(head) + 1 if head != '-1' else len(sent_lines) + 1)
+        labels.append(label)
+
+    sent = ' '.join(words)
+    tagged_words = list(camxes.tag(sent))
+    assert len(tagged_words) == len(words)
+    tags = [tag for _, tag in tagged_words]
+
+    pad_tokens(words)
+    pad_tokens(tags)
+    return words, tags, heads, labels
 
 
 def read(io):
@@ -15,8 +38,7 @@ def read(io):
             words: list of words
             arcs: set of DependencyArcs
     """
-    words = []
-    arcs = set()
+    sent_lines = []
     for line in io:
         line = line.strip()
         if line.startswith('#'):
@@ -25,25 +47,13 @@ def read(io):
 
         if not line:
             # sentence separator
-            if words:
-                yield (words, arcs)
-            words = []
-            arcs = set()
+            if sent_lines:
+                yield parse_sent_str(sent_lines)
+            sent_lines = []
         else:
-            # valid line with a word
-            fields = re.split(r'\s+', line)
-            arc = DependencyArc(child=int(fields[0]), parent=int(fields[2]),
-                                label=fields[3] if len(fields) == 4 else '*')
-            words.append(fields[1])
-            arcs.add(arc)
-
-    if words:
-        yield (words, arcs)
-
-
-def write(io):
-    """Write to a dependency corpus."""
-    pass
+            sent_lines.append(line)
+    if sent_lines:
+        yield parse_sent_str(sent_lines)
 
 
 if __name__ == '__main__':

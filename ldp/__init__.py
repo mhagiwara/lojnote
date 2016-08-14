@@ -1,10 +1,17 @@
 
-from collections import namedtuple
+class DefaultList(list):
+    """A list that returns a default value if index out of bounds."""
+    def __init__(self, default=None):
+        self.default = default
+        list.__init__(self)
 
-# Type definition for a single word in a dependency tree.
-# Fields:
-#   child: 0-base sentence-internal index of child (the current word)
-#   parent : index of parent (the word this child depends on)
-#   label:  label of dependency arc - e.g., 'PLACE1', 'DESCRIPTOR', etc.
-DependencyArc = namedtuple('DependencyArc',
-                           ['child', 'parent', 'label'])
+    def __getitem__(self, index):
+        try:
+            return list.__getitem__(self, index)
+        except IndexError:
+            return self.default
+
+
+def pad_tokens(tokens):
+    tokens.insert(0, '<start>')
+    tokens.append('ROOT')

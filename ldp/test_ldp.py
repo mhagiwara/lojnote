@@ -10,7 +10,7 @@ class TestLojbanDependencyParser(unittest.TestCase):
                           list(camxes.tag('mi klama le zarci')))
 
     def test_parser(self):
-        sent = camxes.tag('mi klama le zarci')
+        tagged_words = camxes.tag('mi klama le zarci')
         arcs = {
             DependencyArc(child=0, parent=1, label='PLACE_1'),
             DependencyArc(child=1, parent=-1, label='MAIN_BRIDI'),
