@@ -1,30 +1,28 @@
 """Access methods for Lojban dependency corpus."""
 
-from ldp import DefaultList, pad_tokens
 from ldp import camxes
+from itertools import izip
 
 
 def parse_sent_str(sent_lines):
-    words = DefaultList('')
-    tags = DefaultList('')
-    heads = [None]
-    labels = [None]
+    words = []
+    tags = []
+    heads = []
+    rels = []
     for line in sent_lines:
         fields = line.split()
-        word, head = fields[1], fields[2]
-        label = '' if len(fields) < 4 else fields[3]
-        words.append(intern(word))
-        heads.append(int(head) + 1 if head != '-1' else len(sent_lines) + 1)
-        labels.append(label)
+        assert len(fields) == 4
+        _, word, head, deprel = fields
+        words.append(word)
+        heads.append(head)
+        rels.append(deprel)
 
     sent = ' '.join(words)
     tagged_words = list(camxes.tag(sent))
     assert len(tagged_words) == len(words)
     tags = [tag for _, tag in tagged_words]
 
-    pad_tokens(words)
-    pad_tokens(tags)
-    return words, tags, heads, labels
+    return words, tags, heads, rels
 
 
 def read(io):
@@ -56,7 +54,18 @@ def read(io):
         yield parse_sent_str(sent_lines)
 
 
-if __name__ == '__main__':
+def sent2conllx(sent):
+    words, tags, heads, rels = sent
+    for i, (word, tag, head, rel) in enumerate(izip(words, tags, heads, rels)):
+        print '%d\t%s\t_\t%s\t%s\t_\t%s\t%s\t_\t_' % (i+1, word, tag, tag, head, rel)
+
+
+def main():
     import sys
     for sent in read(sys.stdin):
-        print sent
+        sent2conllx(sent)
+        print
+
+
+if __name__ == '__main__':
+    main()
