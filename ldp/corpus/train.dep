@@ -1,168 +1,217 @@
 # ID	FORM	HEAD	DEPREL
 # CLL Chapter 1
-1	mi	2	PLACE_1
+1	mi	2	P1
 2	klama	0	ROOT
-3	le	4	DESCRIPTOR
-4	zarci	2	PLACE_2
+3	le	4	LE
+4	zarci	2	P2
 
 # CLL Chapter 2
-1	mi	2	PLACE_1
+1	mi	2	P1
 2	tavla	0	ROOT
-3	do	2	PLACE_2
-4	zo'e	2	PLACE_3
-5	zo'e	2	PLACE_4
+3	do	2	P2
+4	zo'e	2	P3
+5	zo'e	2	P4
 
-1	do	2	PLACE_1
+1	do	2	P1
 2	tavla	0	ROOT
-3	mi	2	PLACE_2
-4	ta	2	PLACE_3
-5	zo'e	2	PLACE_4
+3	mi	2	P2
+4	ta	2	P3
+5	zo'e	2	P4
 
-1	mi	2	PLACE_1
+1	mi	2	P1
 2	tavla	0	ROOT
-3	zo'e	2	PLACE_2
-4	tu	2	PLACE_3
-5	ti	2	PLACE_4
+3	zo'e	2	P2
+4	tu	2	P3
+5	ti	2	P4
 
-1	mi	2	PLACE_1
+1	mi	2	P1
 2	tavla	0	ROOT
-3	do	2	PLACE_2
+3	do	2	P2
 
-1	do	2	PLACE_1
+1	do	2	P1
 2	tavla	0	ROOT
-3	mi	2	PLACE_2
-4	ta	2	PLACE_3
+3	mi	2	P2
+4	ta	2	P3
 
-1	mi	3	PLACE_1
-2	cu	3	SELBRI_SEPARATOR
+1	mi	3	P1
+2	cu	3	CU
 3	vecnu	0	ROOT
-4	ti	3	PLACE_2
-5	ta	3	PLACE_3
-6	zo'e	3	PLACE_4
+4	ti	3	P2
+5	ta	3	P3
+6	zo'e	3	P4
 
-1	mi	4	PLACE_1
-2	ti	4	PLACE_2
-3	cu	4	SELBRI_SEPARATOR
+1	mi	4	P1
+2	ti	4	P2
+3	cu	4	CU
 4	vecnu	0	ROOT
-5	ta	4	PLACE_3
+5	ta	4	P3
 
-1	mi	5	PLACE_1
-2	ti	5	PLACE_2
-3	ta	5	PLACE_3
-4	cu	5	SELBRI_SEPARATOR
+1	mi	5	P1
+2	ti	5	P2
+3	ta	5	P3
+4	cu	5	CU
 5	vecnu	0	ROOT
 
-1	ta	2	PLACE_1
+1	ta	2	P1
 2	melbi	0	ROOT
 
 1	melbi	0	ROOT
 
-1	mi	2	PLACE_1
+1	mi	2	P1
 2	tavla	0	ROOT
-3	do	2	PLACE_2
-4	ti	2	PLACE_3
+3	do	2	P2
+4	ti	2	P3
 
-1	do	3	PLACE_2
-2	se	3	CONVERTER
-3	tavla	1	MAIN_BRIDI
-4	mi	3	PLACE_1
-5	ti	3	PLACE_3
+1	do	3	P2
+2	se	3	SE
+3	tavla	1	ROOT
+4	mi	3	P1
+5	ti	3	P3
 
-1	ti	3	PLACE_3
-2	te	3	CONVERTER
-3	tavla	1	MAIN_BRIDI
-4	do	3	PLACE_2
-5	mi	3	PLACE_1
+1	ti	3	P3
+2	te	3	SE
+3	tavla	1	ROOT
+4	do	3	P2
+5	mi	3	P1
 
-1	mi	3	PLACE_1
+1	mi	3	P1
 2	sutra	3	SELTAU
 3	klama	0	ROOT
-4	la	5	DESCRIPTOR
-5	meris.	3	PLACE_2
+4	la	5	LE
+5	meris.	3	P2
 
-1	mi	4	PLACE_2
+1	mi	4	P2
 2	sutra	4	SELTAU
-3	se	4	CONVERTER
+3	se	4	SE
 4	klama	4	ROOT
-5	la	6	DESCRIPTOR
-6	meris.	4	PLACE_1
+5	la	6	LE
+6	meris.	4	P1
 
-1	la	2	DESCRIPTOR
-2	tam.	4	PLACE_1
+1	la	2	LE
+2	tam.	4	P1
 3	melbi	4	SELTAU
 4	tavla	0	ROOT
-5	la	6	DESCRIPTOR
-6	meris.	4	PLACE_2
+5	la	6	LE
+6	meris.	4	P2
 
-1	la	2	DESCRIPTOR
-2	tam.	5	PLACE_1
+1	la	2	LE
+2	tam.	5	P1
 3	tavla	5	SELTAU
 4	melbi	0	ROOT
-5	la	6	DESCRIPTOR
-6	meris.	4	PLACE_2
+5	la	6	LE
+6	meris.	4	P2
 
-1	la	2	DESCRIPTOR
-2	tam.	5	PLACE_1
-3	se	4	CONVERTER
+1	la	2	LE
+2	tam.	5	P1
+3	se	4	SE
 4	tavla	5	SELTAU
 5	melbi	0	ROOT
-6	la	7	DESCRIPTOR
-7	meris.	5	PLACE_2
+6	la	7	LE
+7	meris.	5	P2
 
-1	mi	2	PLACE_1
+1	mi	2	P1
 2	tavla	0	ROOT
-3	do	2	PLACE_2
-4	le	5	DESCRIPTOR
-5	tavla	2	PLACE_3
-6	ku	4	DESCRIPTOR_TERMINATOR
+3	do	2	P2
+4	le	5	LE
+5	tavla	2	P3
+6	ku	4	KU
 
-1	.i	0	ROOT
-2	ta	6	PLACE_1
-3	cmalu	5	SELTAU
-4	bo	5	TANRU_GROUPER
-5	nixli	6	SELTAU
-6	ckule	1	MAIN_BRIDI
+1	mi	2	P1
+2	tavla	0	ROOT
+3	do	2	P2
+4	le	5	LE
+5	tavla	2	P3
 
-1	.i	0	ROOT
-2	ta	5	PLACE_1
-3	cmalu	4	SELTAU
-4	nixli	5	SELTAU
-5	ckule	1	MAIN_BRIDI
+1	le	3	LE
+2	sutra	3	SELTAU
+3	tavla	0	ROOT
 
-1	.i	0	ROOT
-2	ta	8	PLACE_1
-3	melbi	8	SELTAU
-4	cmalu	6	SELTAU
-5	bo	6	TANRU_GROUPER
-6	nixli	8	SELTAU
-7	bo	8	TANRU_GROUPER
-8	ckule	1	MAIN_BRIDI
+1	le	2	LE
+2	sutra	4	P1
+3	cu	4	CU
+4	tavla	0	ROOT
 
-1	.i	0	ROOT
-2	ta	6	PLACE_1
-3	cmalu	6	SELTAU
-4	nixli	6	SELTAU
-5	bo	6	TANRU_GROUPER
-6	ckule	1	MAIN_BRIDI
+1	le	2	LE
+2	sutra	4	P2
+3	se	4	SE
+4	tavla	0	ROOT
 
-1	.i	0	ROOT
-2	re	3	QUANTIFIER
-3	le	5	DESCRIPTOR
-4	ci	5	QUANTIFIER
-5	gerku	7	PLACE_1
-6	cu	7	SELBRI_SEPARATOR
-7	blabi	1	MAIN_BRIDI
+1	le	2	LE
+2	sutra	5	P2
+3	cu	5	CU
+4	se	5	SE
+5	tavla	0	ROOT
 
-1	.i	0	ROOT
-2	la	3	DESCRIPTOR
-3	djan.	5	PLACE_1
-4	barda	5	SELTAU
-5	nanla	1	MAIN_BRIDI
+1	mi	2	P1
+2	tavla	0	ROOT
+3	le	4	LE
+4	vecnu	2	P2
+5	le	6	LE
+6	blari'o	2	P3
 
-1	.i	0	ROOT
-2	la	3	DESCRIPTOR
-3	djan.	5	PLACE_1
-4	cu	5	SELBRI_SEPARATOR
-5	klama	1	MAIN_BRIDI
-6	le	7	DESCRIPTOR
-7	zarci	5	PLACE_2
+1	mi	2	P1
+2	klama	0	ROOT
+3	ti	2	P2
+4	zo'e	2	P3
+5	zo'e	2	P4
+6	ta	2	P5
+
+1	ta	2	P1
+2	blari'o	0	ROOT
+
+1	ti	2	P1
+2	djarspageti	0	ROOT
+
+1	ta	2	P1
+2	go'i	0	ROOT
+
+1	le	2	LE
+2	gerku	4	P1
+3	cu	4	CU
+4	melbi	0	ROOT
+
+1	ti	2	P1
+2	pluka	0	ROOT
+3	mi	2	P2
+
+1	di'u	2	P1
+2	pluka	0	ROOT
+3	mi	2	P2
+
+1	la'e	2	LAhE
+2	di'u	3	P1
+3	pluka	0	ROOT
+4	mi	3	P2
+
+1	le	3	LE
+2	mi	3	POSS
+3	gerku	5	P1
+4	cu	5	CU
+5	sutra	0	ROOT
+
+1	doi	0	ROOT
+2	djan.	1	DOI
+
+1	ko	2	P1
+2	tavla	0	ROOT
+
+1	ko	3	P1
+2	ko	3	P2
+3	kurji	0	ROOT
+
+1	ma	2	P1
+2	tavla	0	ROOT
+3	do	2	P2
+4	mi	2	P3
+
+1	do	2	P1
+2	tavla	0	ROOT
+3	ma	2	P2
+
+1	do	2	P1
+2	mo	0	ROOT
+
+1	xu	0	ROOT
+2	do	2	P1
+3	tavla	0	ROOT
+4	mi	3	P2

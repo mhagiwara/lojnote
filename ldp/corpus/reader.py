@@ -1,10 +1,20 @@
-"""Access methods for Lojban dependency corpus."""
+"""Access methods for Lojban dependency corpus.
+When run independently, this converts TSV-style dependency corpus into
+CoNLL-X style format."""
 
 from ldp import camxes
 from itertools import izip
 
 
 def parse_sent_str(sent_lines):
+    """Given a list of lines for Lojban dependency corpus, convert them into a tuple of:
+        words: list of words
+        tags: list of POS tags
+        heads: list of head indices
+        rels: list of dependency labels
+
+    This method also runs camxes to obtain correct POS tags (selma'o).
+    """
     words = []
     tags = []
     heads = []
@@ -32,9 +42,11 @@ def read(io):
         io: The IO object that we are reading the file from (stdin, file, etc.)
 
     Yields:
-        Pairs (words, arcs) where:
+        Tuples (words, tags, heads, rels) where:
             words: list of words
-            arcs: set of DependencyArcs
+            tags: list of POS tags
+            heads: list of head indices
+            rels: list of dependency labels
     """
     sent_lines = []
     for line in io:
@@ -55,15 +67,17 @@ def read(io):
 
 
 def sent2conllx(sent):
+    """Given a sentence tuple, yield lines of CoNLL-X format."""
     words, tags, heads, rels = sent
     for i, (word, tag, head, rel) in enumerate(izip(words, tags, heads, rels)):
-        print '%d\t%s\t_\t%s\t%s\t_\t%s\t%s\t_\t_' % (i+1, word, tag, tag, head, rel)
+        yield '%d\t%s\t_\t%s\t%s\t_\t%s\t%s\t_\t_' % (i+1, word, tag, tag, head, rel)
 
 
 def main():
     import sys
     for sent in read(sys.stdin):
-        sent2conllx(sent)
+        for line in sent2conllx(sent):
+            print line
         print
 
 

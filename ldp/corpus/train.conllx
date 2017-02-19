@@ -1,0 +1,215 @@
+1	mi	_	KOhA	KOhA	_	2	P1	_	_
+2	klama	_	gismu	gismu	_	0	ROOT	_	_
+3	le	_	LE	LE	_	4	LE	_	_
+4	zarci	_	gismu	gismu	_	2	P2	_	_
+
+1	mi	_	KOhA	KOhA	_	2	P1	_	_
+2	tavla	_	gismu	gismu	_	0	ROOT	_	_
+3	do	_	KOhA	KOhA	_	2	P2	_	_
+4	zo'e	_	KOhA	KOhA	_	2	P3	_	_
+5	zo'e	_	KOhA	KOhA	_	2	P4	_	_
+
+1	do	_	KOhA	KOhA	_	2	P1	_	_
+2	tavla	_	gismu	gismu	_	0	ROOT	_	_
+3	mi	_	KOhA	KOhA	_	2	P2	_	_
+4	ta	_	KOhA	KOhA	_	2	P3	_	_
+5	zo'e	_	KOhA	KOhA	_	2	P4	_	_
+
+1	mi	_	KOhA	KOhA	_	2	P1	_	_
+2	tavla	_	gismu	gismu	_	0	ROOT	_	_
+3	zo'e	_	KOhA	KOhA	_	2	P2	_	_
+4	tu	_	KOhA	KOhA	_	2	P3	_	_
+5	ti	_	KOhA	KOhA	_	2	P4	_	_
+
+1	mi	_	KOhA	KOhA	_	2	P1	_	_
+2	tavla	_	gismu	gismu	_	0	ROOT	_	_
+3	do	_	KOhA	KOhA	_	2	P2	_	_
+
+1	do	_	KOhA	KOhA	_	2	P1	_	_
+2	tavla	_	gismu	gismu	_	0	ROOT	_	_
+3	mi	_	KOhA	KOhA	_	2	P2	_	_
+4	ta	_	KOhA	KOhA	_	2	P3	_	_
+
+1	mi	_	KOhA	KOhA	_	3	P1	_	_
+2	cu	_	CU	CU	_	3	CU	_	_
+3	vecnu	_	gismu	gismu	_	0	ROOT	_	_
+4	ti	_	KOhA	KOhA	_	3	P2	_	_
+5	ta	_	KOhA	KOhA	_	3	P3	_	_
+6	zo'e	_	KOhA	KOhA	_	3	P4	_	_
+
+1	mi	_	KOhA	KOhA	_	4	P1	_	_
+2	ti	_	KOhA	KOhA	_	4	P2	_	_
+3	cu	_	CU	CU	_	4	CU	_	_
+4	vecnu	_	gismu	gismu	_	0	ROOT	_	_
+5	ta	_	KOhA	KOhA	_	4	P3	_	_
+
+1	mi	_	KOhA	KOhA	_	5	P1	_	_
+2	ti	_	KOhA	KOhA	_	5	P2	_	_
+3	ta	_	KOhA	KOhA	_	5	P3	_	_
+4	cu	_	CU	CU	_	5	CU	_	_
+5	vecnu	_	gismu	gismu	_	0	ROOT	_	_
+
+1	ta	_	KOhA	KOhA	_	2	P1	_	_
+2	melbi	_	gismu	gismu	_	0	ROOT	_	_
+
+1	melbi	_	gismu	gismu	_	0	ROOT	_	_
+
+1	mi	_	KOhA	KOhA	_	2	P1	_	_
+2	tavla	_	gismu	gismu	_	0	ROOT	_	_
+3	do	_	KOhA	KOhA	_	2	P2	_	_
+4	ti	_	KOhA	KOhA	_	2	P3	_	_
+
+1	do	_	KOhA	KOhA	_	3	P2	_	_
+2	se	_	SE	SE	_	3	SE	_	_
+3	tavla	_	gismu	gismu	_	1	ROOT	_	_
+4	mi	_	KOhA	KOhA	_	3	P1	_	_
+5	ti	_	KOhA	KOhA	_	3	P3	_	_
+
+1	ti	_	KOhA	KOhA	_	3	P3	_	_
+2	te	_	SE	SE	_	3	SE	_	_
+3	tavla	_	gismu	gismu	_	1	ROOT	_	_
+4	do	_	KOhA	KOhA	_	3	P2	_	_
+5	mi	_	KOhA	KOhA	_	3	P1	_	_
+
+1	mi	_	KOhA	KOhA	_	3	P1	_	_
+2	sutra	_	gismu	gismu	_	3	SELTAU	_	_
+3	klama	_	gismu	gismu	_	0	ROOT	_	_
+4	la	_	LA	LA	_	5	LE	_	_
+5	meris.	_	cmene	cmene	_	3	P2	_	_
+
+1	mi	_	KOhA	KOhA	_	4	P2	_	_
+2	sutra	_	gismu	gismu	_	4	SELTAU	_	_
+3	se	_	SE	SE	_	4	SE	_	_
+4	klama	_	gismu	gismu	_	4	ROOT	_	_
+5	la	_	LA	LA	_	6	LE	_	_
+6	meris.	_	cmene	cmene	_	4	P1	_	_
+
+1	la	_	LA	LA	_	2	LE	_	_
+2	tam.	_	cmene	cmene	_	4	P1	_	_
+3	melbi	_	gismu	gismu	_	4	SELTAU	_	_
+4	tavla	_	gismu	gismu	_	0	ROOT	_	_
+5	la	_	LA	LA	_	6	LE	_	_
+6	meris.	_	cmene	cmene	_	4	P2	_	_
+
+1	la	_	LA	LA	_	2	LE	_	_
+2	tam.	_	cmene	cmene	_	5	P1	_	_
+3	tavla	_	gismu	gismu	_	5	SELTAU	_	_
+4	melbi	_	gismu	gismu	_	0	ROOT	_	_
+5	la	_	LA	LA	_	6	LE	_	_
+6	meris.	_	cmene	cmene	_	4	P2	_	_
+
+1	la	_	LA	LA	_	2	LE	_	_
+2	tam.	_	cmene	cmene	_	5	P1	_	_
+3	se	_	SE	SE	_	4	SE	_	_
+4	tavla	_	gismu	gismu	_	5	SELTAU	_	_
+5	melbi	_	gismu	gismu	_	0	ROOT	_	_
+6	la	_	LA	LA	_	7	LE	_	_
+7	meris.	_	cmene	cmene	_	5	P2	_	_
+
+1	mi	_	KOhA	KOhA	_	2	P1	_	_
+2	tavla	_	gismu	gismu	_	0	ROOT	_	_
+3	do	_	KOhA	KOhA	_	2	P2	_	_
+4	le	_	LE	LE	_	5	LE	_	_
+5	tavla	_	gismu	gismu	_	2	P3	_	_
+6	ku	_	KU	KU	_	4	KU	_	_
+
+1	mi	_	KOhA	KOhA	_	2	P1	_	_
+2	tavla	_	gismu	gismu	_	0	ROOT	_	_
+3	do	_	KOhA	KOhA	_	2	P2	_	_
+4	le	_	LE	LE	_	5	LE	_	_
+5	tavla	_	gismu	gismu	_	2	P3	_	_
+
+1	le	_	LE	LE	_	3	LE	_	_
+2	sutra	_	gismu	gismu	_	3	SELTAU	_	_
+3	tavla	_	gismu	gismu	_	0	ROOT	_	_
+
+1	le	_	LE	LE	_	2	LE	_	_
+2	sutra	_	gismu	gismu	_	4	P1	_	_
+3	cu	_	CU	CU	_	4	CU	_	_
+4	tavla	_	gismu	gismu	_	0	ROOT	_	_
+
+1	le	_	LE	LE	_	2	LE	_	_
+2	sutra	_	gismu	gismu	_	4	P2	_	_
+3	se	_	SE	SE	_	4	SE	_	_
+4	tavla	_	gismu	gismu	_	0	ROOT	_	_
+
+1	le	_	LE	LE	_	2	LE	_	_
+2	sutra	_	gismu	gismu	_	5	P2	_	_
+3	cu	_	CU	CU	_	5	CU	_	_
+4	se	_	SE	SE	_	5	SE	_	_
+5	tavla	_	gismu	gismu	_	0	ROOT	_	_
+
+1	mi	_	KOhA	KOhA	_	2	P1	_	_
+2	tavla	_	gismu	gismu	_	0	ROOT	_	_
+3	le	_	LE	LE	_	4	LE	_	_
+4	vecnu	_	gismu	gismu	_	2	P2	_	_
+5	le	_	LE	LE	_	6	LE	_	_
+6	blari'o	_	lujvo	lujvo	_	2	P3	_	_
+
+1	mi	_	KOhA	KOhA	_	2	P1	_	_
+2	klama	_	gismu	gismu	_	0	ROOT	_	_
+3	ti	_	KOhA	KOhA	_	2	P2	_	_
+4	zo'e	_	KOhA	KOhA	_	2	P3	_	_
+5	zo'e	_	KOhA	KOhA	_	2	P4	_	_
+6	ta	_	KOhA	KOhA	_	2	P5	_	_
+
+1	ta	_	KOhA	KOhA	_	2	P1	_	_
+2	blari'o	_	lujvo	lujvo	_	0	ROOT	_	_
+
+1	ti	_	KOhA	KOhA	_	2	P1	_	_
+2	djarspageti	_	fuhivla	fuhivla	_	0	ROOT	_	_
+
+1	ta	_	KOhA	KOhA	_	2	P1	_	_
+2	go'i	_	GOhA	GOhA	_	0	ROOT	_	_
+
+1	le	_	LE	LE	_	2	LE	_	_
+2	gerku	_	gismu	gismu	_	4	P1	_	_
+3	cu	_	CU	CU	_	4	CU	_	_
+4	melbi	_	gismu	gismu	_	0	ROOT	_	_
+
+1	ti	_	KOhA	KOhA	_	2	P1	_	_
+2	pluka	_	gismu	gismu	_	0	ROOT	_	_
+3	mi	_	KOhA	KOhA	_	2	P2	_	_
+
+1	di'u	_	KOhA	KOhA	_	2	P1	_	_
+2	pluka	_	gismu	gismu	_	0	ROOT	_	_
+3	mi	_	KOhA	KOhA	_	2	P2	_	_
+
+1	la'e	_	LAhE	LAhE	_	2	LAhE	_	_
+2	di'u	_	KOhA	KOhA	_	3	P1	_	_
+3	pluka	_	gismu	gismu	_	0	ROOT	_	_
+4	mi	_	KOhA	KOhA	_	3	P2	_	_
+
+1	le	_	LE	LE	_	3	LE	_	_
+2	mi	_	KOhA	KOhA	_	3	POSS	_	_
+3	gerku	_	gismu	gismu	_	5	P1	_	_
+4	cu	_	CU	CU	_	5	CU	_	_
+5	sutra	_	gismu	gismu	_	0	ROOT	_	_
+
+1	doi	_	DOI	DOI	_	0	ROOT	_	_
+2	djan.	_	cmene	cmene	_	1	DOI	_	_
+
+1	ko	_	KOhA	KOhA	_	2	P1	_	_
+2	tavla	_	gismu	gismu	_	0	ROOT	_	_
+
+1	ko	_	KOhA	KOhA	_	3	P1	_	_
+2	ko	_	KOhA	KOhA	_	3	P2	_	_
+3	kurji	_	gismu	gismu	_	0	ROOT	_	_
+
+1	ma	_	KOhA	KOhA	_	2	P1	_	_
+2	tavla	_	gismu	gismu	_	0	ROOT	_	_
+3	do	_	KOhA	KOhA	_	2	P2	_	_
+4	mi	_	KOhA	KOhA	_	2	P3	_	_
+
+1	do	_	KOhA	KOhA	_	2	P1	_	_
+2	tavla	_	gismu	gismu	_	0	ROOT	_	_
+3	ma	_	KOhA	KOhA	_	2	P2	_	_
+
+1	do	_	KOhA	KOhA	_	2	P1	_	_
+2	mo	_	GOhA	GOhA	_	0	ROOT	_	_
+
+1	xu	_	UI	UI	_	0	ROOT	_	_
+2	do	_	KOhA	KOhA	_	2	P1	_	_
+3	tavla	_	gismu	gismu	_	0	ROOT	_	_
+4	mi	_	KOhA	KOhA	_	3	P2	_	_
+
