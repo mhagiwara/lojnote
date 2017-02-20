@@ -4,49 +4,49 @@ CoNLL-X style format."""
 
 from ldp import camxes
 from itertools import izip
+from collections import namedtuple
+
+DepToken = namedtuple('DepToken', ['word', 'tag', 'head', 'deprel'])
+CONLLXToken = namedtuple('CONLLXToken', ['form', 'lemma', 'cpostag', 'postag', 'feats',
+                                         'head', 'deprel', 'phead', 'pdeprel'])
 
 
-def parse_sent_str(sent_lines):
-    """Given a list of lines for Lojban dependency corpus, convert them into a tuple of:
-        words: list of words
-        tags: list of POS tags
-        heads: list of head indices
-        rels: list of dependency labels
-
+def parse_dep_sent(sent_lines):
+    """Given a list of lines for Lojban dependency corpus, convert them into a list of DepTokens.
     This method also runs camxes to obtain correct POS tags (selma'o).
     """
+
     words = []
-    tags = []
     heads = []
-    rels = []
+    deprels = []
     for line in sent_lines:
         fields = line.split()
         assert len(fields) == 4
         _, word, head, deprel = fields
         words.append(word)
-        heads.append(head)
-        rels.append(deprel)
+        heads.append(int(head))
+        deprels.append(deprel)
 
     sent = ' '.join(words)
     tagged_words = list(camxes.tag(sent))
     assert len(tagged_words) == len(words)
-    tags = [tag for _, tag in tagged_words]
 
-    return words, tags, heads, rels
+    tokens = []
+    for word, (_, tag), head, deprel in izip(words, tagged_words, heads, deprels):
+        token = DepToken(word=word, tag=tag, head=head, deprel=deprel)
+        tokens.append(token)
+
+    return tokens
 
 
-def read(io):
+def read_dep_corpus(io):
     """Read from a dependency corpus.
 
     Parameters:
         io: The IO object that we are reading the file from (stdin, file, etc.)
 
     Yields:
-        Tuples (words, tags, heads, rels) where:
-            words: list of words
-            tags: list of POS tags
-            heads: list of head indices
-            rels: list of dependency labels
+        Sentences, where one sentence is a list of DepTokens.
     """
     sent_lines = []
     for line in io:
@@ -58,12 +58,12 @@ def read(io):
         if not line:
             # sentence separator
             if sent_lines:
-                yield parse_sent_str(sent_lines)
+                yield parse_dep_sent(sent_lines)
             sent_lines = []
         else:
             sent_lines.append(line)
     if sent_lines:
-        yield parse_sent_str(sent_lines)
+        yield parse_dep_sent(sent_lines)
 
 
 def sent2conllx(sent):
@@ -75,7 +75,7 @@ def sent2conllx(sent):
 
 def main():
     import sys
-    for sent in read(sys.stdin):
+    for sent in read_dep_corpus(sys.stdin):
         for line in sent2conllx(sent):
             print line
         print
