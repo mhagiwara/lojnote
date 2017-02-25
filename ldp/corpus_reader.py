@@ -39,14 +39,30 @@ def parse_dep_sent(sent_lines):
     return tokens
 
 
-def read_dep_corpus(io):
-    """Read from a dependency corpus.
+def parse_conllx_sent(sent_lines):
+    """Given a list of lines from a CoNLL-X format corpus, convert them into a list of CONLLXTokens.
+    """
+    tokens = []
+    for line in sent_lines:
+        fields = line.split()
+        assert len(fields) == 10
+        _, form, lemma, cpostag, postag, feats, head, deprel, phead, pdeprel = fields
+        token = CONLLXToken(form=form, lemma=lemma, cpostag=cpostag, postag=postag, feats=feats,
+                            head=int(head), deprel=deprel, phead=phead, pdeprel=pdeprel)
+        tokens.append(token)
+
+    return tokens
+
+
+def read_corpus(io, parse_sent_func):
+    """Read from a dependency/CoNLL-X corpus.
 
     Parameters:
         io: The IO object that we are reading the file from (stdin, file, etc.)
+        parse_sent_func: method that, given a list of sentence lines, returns a sentence object.
 
     Yields:
-        Sentences, where one sentence is a list of DepTokens.
+        Sentences, where one sentence is the return value of parse_sent_func.
     """
     sent_lines = []
     for line in io:
@@ -58,19 +74,29 @@ def read_dep_corpus(io):
         if not line:
             # sentence separator
             if sent_lines:
-                yield parse_dep_sent(sent_lines)
+                yield parse_sent_func(sent_lines)
             sent_lines = []
         else:
             sent_lines.append(line)
     if sent_lines:
-        yield parse_dep_sent(sent_lines)
+        yield parse_sent_func(sent_lines)
+
+
+def read_dep_corpus(io):
+    for sent in read_corpus(io, parse_dep_sent):
+        yield sent
+
+
+def read_conllx_corpus(io):
+    for sent in read_corpus(io, parse_conllx_sent):
+        yield sent
 
 
 def sent2conllx(sent):
     """Given a sentence tuple, yield lines of CoNLL-X format."""
-    words, tags, heads, rels = sent
-    for i, (word, tag, head, rel) in enumerate(izip(words, tags, heads, rels)):
-        yield '%d\t%s\t_\t%s\t%s\t_\t%s\t%s\t_\t_' % (i+1, word, tag, tag, head, rel)
+    for i, token in enumerate(sent):
+        token_tuple = (i+1, token.word, token.tag, token.tag, token.head, token.deprel)
+        yield '%d\t%s\t_\t%s\t%s\t_\t%s\t%s\t_\t_' % token_tuple
 
 
 def main():

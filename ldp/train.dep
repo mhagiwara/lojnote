@@ -215,3 +215,52 @@
 2	do	2	P1
 3	tavla	0	ROOT
 4	mi	3	P2
+
+1	.ie	0	ROOT
+2	mi	3	P1
+3	klama	0	ROOT
+
+1	mi	2	P1
+2	klama	0	ROOT
+3	le	4	LE
+4	melbi	2	P2
+5	.ui	4	UI
+
+1	.i	0	ROOT
+2	ji'a	0	UI
+3	do	4	P1
+4	stali	1	BRIDI
+
+1	.i	0	ROOT
+2	ku'i	0	UI
+3	do	4	P1
+4	stali	1	BRIDI
+
+1	pe'i	0	ROOT
+2	do	3	P1
+3	melbi	0	ROOT
+
+1	la	2	LE
+2	djan.	4	P1
+3	pu	4	TENSE
+4	klama	0	ROOT
+5	le	6	LE
+6	zarci	4	P2
+
+1	do	3	P1
+2	vu	3	TENSE
+3	vecnu	0	ROOT
+4	zo'e	3	P2
+
+1	le	2	LE
+2	pu	3	TENSE
+3	bajra	5	P1
+4	cu	5	CU
+5	tavla	0	ROOT
+
+1	le	3	LE
+2	vi	3	TENSE
+3	tavla	6	P1
+4	cu	6	CU
+5	ba	6	TENSE
+6	klama	0	ROOT

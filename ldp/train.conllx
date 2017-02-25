@@ -213,3 +213,52 @@
 3	tavla	_	gismu	gismu	_	0	ROOT	_	_
 4	mi	_	KOhA	KOhA	_	3	P2	_	_
 
+1	.ie	_	UI	UI	_	0	ROOT	_	_
+2	mi	_	KOhA	KOhA	_	3	P1	_	_
+3	klama	_	gismu	gismu	_	0	ROOT	_	_
+
+1	mi	_	KOhA	KOhA	_	2	P1	_	_
+2	klama	_	gismu	gismu	_	0	ROOT	_	_
+3	le	_	LE	LE	_	4	LE	_	_
+4	melbi	_	gismu	gismu	_	2	P2	_	_
+5	.ui	_	UI	UI	_	4	UI	_	_
+
+1	.i	_	I	I	_	0	ROOT	_	_
+2	ji'a	_	UI	UI	_	0	UI	_	_
+3	do	_	KOhA	KOhA	_	4	P1	_	_
+4	stali	_	gismu	gismu	_	1	BRIDI	_	_
+
+1	.i	_	I	I	_	0	ROOT	_	_
+2	ku'i	_	UI	UI	_	0	UI	_	_
+3	do	_	KOhA	KOhA	_	4	P1	_	_
+4	stali	_	gismu	gismu	_	1	BRIDI	_	_
+
+1	pe'i	_	UI	UI	_	0	ROOT	_	_
+2	do	_	KOhA	KOhA	_	3	P1	_	_
+3	melbi	_	gismu	gismu	_	0	ROOT	_	_
+
+1	la	_	LA	LA	_	2	LE	_	_
+2	djan.	_	cmene	cmene	_	4	P1	_	_
+3	pu	_	PU	PU	_	4	TENSE	_	_
+4	klama	_	gismu	gismu	_	0	ROOT	_	_
+5	le	_	LE	LE	_	6	LE	_	_
+6	zarci	_	gismu	gismu	_	4	P2	_	_
+
+1	do	_	KOhA	KOhA	_	3	P1	_	_
+2	vu	_	VA	VA	_	3	TENSE	_	_
+3	vecnu	_	gismu	gismu	_	0	ROOT	_	_
+4	zo'e	_	KOhA	KOhA	_	3	P2	_	_
+
+1	le	_	LE	LE	_	2	LE	_	_
+2	pu	_	PU	PU	_	3	TENSE	_	_
+3	bajra	_	gismu	gismu	_	5	P1	_	_
+4	cu	_	CU	CU	_	5	CU	_	_
+5	tavla	_	gismu	gismu	_	0	ROOT	_	_
+
+1	le	_	LE	LE	_	3	LE	_	_
+2	vi	_	VA	VA	_	3	TENSE	_	_
+3	tavla	_	gismu	gismu	_	6	P1	_	_
+4	cu	_	CU	CU	_	6	CU	_	_
+5	ba	_	PU	PU	_	6	TENSE	_	_
+6	klama	_	gismu	gismu	_	0	ROOT	_	_
+
