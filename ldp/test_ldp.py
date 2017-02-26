@@ -1,6 +1,7 @@
 import unittest
 from ldp.corpus_reader import (DepToken, parse_dep_sent, read_dep_corpus,
                                CONLLXToken, parse_conllx_sent, read_conllx_corpus)
+from ldp.eval import evaluate_sent, evaluate
 
 
 class LDPTestCases(unittest.TestCase):
@@ -49,6 +50,25 @@ class LDPTestCases(unittest.TestCase):
         self.assertEquals(CONLLXToken(form='brode', lemma='_', cpostag='gismu', postag='gismu',
                           feats='_', head=0, deprel='ROOT', phead='_', pdeprel='_'),
                           sents[1][0])
+
+    def test_eval(self):
+        ans_str = ["1	mi	_	KOhA	KOhA	_	2	P1	_	_",
+                   "2	broda	_	gismu	gismu	_	0	ROOT	_	_"]
+        sys_str = ["1	mi	_	KOhA	KOhA	_	1	PX	_	_",
+                   "2	broda	_	gismu	gismu	_	0	ROOTX	_	_"]
+
+        ans_sent = parse_conllx_sent(ans_str)
+        sys_sent = parse_conllx_sent(sys_str)
+        stats = evaluate_sent(ans_sent, sys_sent)
+        self.assertEquals(2, stats['num_tokens'])
+        self.assertEquals(1, stats['unlabeled_matches'])
+        self.assertEquals(0, stats['labeled_matches'])
+
+        ans_corpus = list(read_conllx_corpus(ans_str))
+        sys_corpus = list(read_conllx_corpus(sys_str))
+        results = evaluate(ans_corpus, sys_corpus)
+        self.assertAlmostEquals(0.5, results['UAS'])
+        self.assertAlmostEquals(0.0, results['LAS'])
 
 
 if __name__ == '__main__':
