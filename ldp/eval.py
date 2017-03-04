@@ -26,7 +26,6 @@ def evaluate_sent(ans_sent, sys_sent):
 def evaluate(ans_corpus, sys_corpus):
     assert len(ans_corpus) == len(sys_corpus)
     assert len(ans_corpus) > 0
-    print 'Evaluating: # of sentences in corpus: %d' % len(ans_corpus)
 
     stats_sum = Counter()
     for ans_sent, sys_sent in zip(ans_corpus, sys_corpus):

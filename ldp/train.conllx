@@ -262,3 +262,59 @@
 5	ba	_	PU	PU	_	6	TENSE	_	_
 6	klama	_	gismu	gismu	_	0	ROOT	_	_
 
+1	lo	_	LE	LE	_	2	LE	_	_
+2	mlatu	_	gismu	gismu	_	4	P1	_	_
+3	cu	_	CU	CU	_	4	CU	_	_
+4	pinxe	_	gismu	gismu	_	0	ROOT	_	_
+5	lo	_	LE	LE	_	6	LE	_	_
+6	ladru	_	gismu	gismu	_	4	P2	_	_
+
+1	lo	_	LE	LE	_	2	LE	_	_
+2	plise	_	gismu	gismu	_	4	P1	_	_
+3	cu	_	CU	CU	_	4	CU	_	_
+4	kukte	_	gismu	gismu	_	0	ROOT	_	_
+
+1	karce	_	gismu	gismu	_	0	ROOT	_	_
+
+1	carvi	_	gismu	gismu	_	0	ROOT	_	_
+
+1	pluka	_	gismu	gismu	_	0	ROOT	_	_
+
+1	prami	_	gismu	gismu	_	0	ROOT	_	_
+
+1	bajra	_	gismu	gismu	_	0	ROOT	_	_
+
+1	mi	_	KOhA	KOhA	_	1	P1	_	_
+2	pinxe	_	gismu	gismu	_	0	ROOT	_	_
+
+1	do	_	KOhA	KOhA	_	1	P1	_	_
+2	pinxe	_	gismu	gismu	_	0	ROOT	_	_
+
+1	ti	_	KOhA	KOhA	_	1	P1	_	_
+2	ladru	_	gismu	gismu	_	0	ROOT	_	_
+
+1	tu	_	KOhA	KOhA	_	1	P1	_	_
+2	mlatu	_	gismu	gismu	_	0	ROOT	_	_
+
+1	do	_	KOhA	KOhA	_	2	P1	_	_
+2	citka	_	gismu	gismu	_	0	ROOT	_	_
+3	lo	_	LE	LE	_	4	LE	_	_
+4	plise	_	gismu	gismu	_	2	ROOT	_	_
+
+1	mi	_	KOhA	KOhA	_	2	P1	_	_
+2	prami	_	gismu	gismu	_	0	ROOT	_	_
+3	do	_	KOhA	KOhA	_	2	P2	_	_
+
+1	.i	_	I	I	_	0	ROOT	_	_
+2	mi	_	KOhA	KOhA	_	3	P1	_	_
+3	viska	_	gismu	gismu	_	1	BRIDI	_	_
+4	lo	_	LE	LE	_	5	LE	_	_
+5	mlatu	_	gismu	gismu	_	3	P2	_	_
+6	.i	_	I	I	_	1	I	_	_
+7	lo	_	LE	LE	_	8	LE	_	_
+8	mlatu	_	gismu	gismu	_	10	P1	_	_
+9	cu	_	CU	CU	_	10	CU	_	_
+10	pinxe	_	gismu	gismu	_	6	BRIDI	_	_
+11	lo	_	LE	LE	_	12	LE	_	_
+12	ladru	_	gismu	gismu	_	10	P2	_	_
+

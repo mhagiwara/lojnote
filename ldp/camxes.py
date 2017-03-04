@@ -29,7 +29,10 @@ class CamxesNode(object):
     def create_from_array(cls, subtree):
         """Create a CamxesNode instance from an array representation."""
         assert isinstance(subtree, list)
-        if len(subtree) == 1:
+        if len(subtree) == 0:
+            # empty input
+            return None
+        elif len(subtree) == 1:
             # terminal nodes (no children)
             return CamxesNode(children=[], label=subtree[0], terminal=True)
         else:
@@ -128,7 +131,11 @@ def _normalize_array_tree(subtree):
 
 
 def parse(text):
-    """Given raw Lojban text, parse it and return the parse tree in the array representation."""
+    """Given raw Lojban text, parse it and return the parse tree in the array representation.
+
+    Returns:
+        An instance of CamxesNode. None if input is empty.
+    """
     raw_output = _run_camxes('-e', text)
     raw_output = re.sub(r'(\w+)\(', '"\\1", [', raw_output)
     raw_output = raw_output.replace(')', ']')
@@ -138,5 +145,8 @@ def parse(text):
 
 
 def tag(text):
+    """Given raw Lojban text, parse it using camxes and yields tuples (word, selmaho)."""
     tree = parse(text)
-    return tree.to_tagged_words()
+    if tree is not None:
+        for tagged_word in tree.to_tagged_words():
+            yield tagged_word

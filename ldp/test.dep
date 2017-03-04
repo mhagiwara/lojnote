@@ -23,3 +23,31 @@
 7	lo	8	LE
 8	dakfu	6	P2
 9	ku	7	KU
+
+1	lo	3	LE
+2	se	3	SE
+3	friti	6	P1
+4	ku	1	KU
+5	xamgu	6	SE
+6	lo	0	ROOT
+7	se	8	LE
+8	ginka	6	P2
+9	ku	7	KU
+
+1	dunda	0	ROOT
+2	fa	3	FA
+3	mi	1	P1
+4	ti	1	P2
+5	do	1	P3
+
+1	mi	2	P1
+2	dunda	0	ROOT
+3	fi	4	FA
+4	do	2	P3
+
+1	fe	2	FA
+2	ti	3	P2
+3	dunda	0	ROOT
+4	fa	5	FA
+5	mi	3	P1
+6	do	3	P3

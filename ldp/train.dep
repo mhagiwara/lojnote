@@ -264,3 +264,61 @@
 4	cu	6	CU
 5	ba	6	TENSE
 6	klama	0	ROOT
+
+# ID	FORM	HEAD	DEPREL
+# Lojban Crash Course Lesson 1
+1	lo	2	LE
+2	mlatu	4	P1
+3	cu	4	CU
+4	pinxe	0	ROOT
+5	lo	6	LE
+6	ladru	4	P2
+
+1	lo	2	LE
+2	plise	4	P1
+3	cu	4	CU
+4	kukte	0	ROOT
+
+1	karce	0	ROOT
+
+1	carvi	0	ROOT
+
+1	pluka	0	ROOT
+
+1	prami	0	ROOT
+
+1	bajra	0	ROOT
+
+1	mi	1	P1
+2	pinxe	0	ROOT
+
+1	do	1	P1
+2	pinxe	0	ROOT
+
+1	ti	1	P1
+2	ladru	0	ROOT
+
+1	tu	1	P1
+2	mlatu	0	ROOT
+
+1	do	2	P1
+2	citka	0	ROOT
+3	lo	4	LE
+4	plise	2	ROOT
+
+1	mi	2	P1
+2	prami	0	ROOT
+3	do	2	P2
+
+1	.i	0	ROOT
+2	mi	3	P1
+3	viska	1	BRIDI
+4	lo	5	LE
+5	mlatu	3	P2
+6	.i	1	I
+7	lo	8	LE
+8	mlatu	10	P1
+9	cu	10	CU
+10	pinxe	6	BRIDI
+11	lo	12	LE
+12	ladru	10	P2
