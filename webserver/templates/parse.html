@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="/static/cytoscape.min.js"></script>
+    </head>
+    <body>
+        Hello, {{sentence}}!!!
+        <pre>
+            {{parse_str}}
+        </pre>
+
+        <div id="cy" style="width: 500px; height: 500px;"></div>
+
+        <script>
+        var cy = cytoscape({
+          container: document.getElementById('cy'),
+          elements: {
+            nodes: [{
+              data: {
+                id: 'mi',
+                title: 'mi'
+              },
+              position: {x: 0, y: 0}
+            }, {
+              data: {
+                id: 'klama',
+                title: 'klama',
+              },
+              position: {x: 100, y: 0}
+            }, {
+              data: {
+                id: 'le',
+                title: 'le'
+              },
+               position: {x: 200, y: 0}
+            }, {
+              data: {
+                id: 'zarci',
+                title: 'zarci'
+              },
+              position: {x: 300, y: 0}
+            }
+         		],
+            edges: [{
+              data: {
+                id: '1',
+                source: 'mi',
+                target: 'klama',
+                direction: 1,
+              },
+            }, {
+              data: {
+                id: '2',
+                source: 'le',
+                target: 'zarci',
+                direction: 1
+              }
+            }, {
+              data: {
+                id: '3',
+                source: 'zarci',
+                target: 'klama',
+                direction: -1,
+              },
+              style: {'control-point-distances': '50 50'}
+            }]
+          },
+          layout: {
+            name: 'preset'
+          },
+          style: [{
+            selector: 'node',
+            style: {
+              'label': 'data(title)',
+              'width': '50px',
+              'font-size': '12px',
+              'text-valign': 'center',
+            }
+          }, {
+            selector: 'edge',
+            style: {
+              'curve-style': 'unbundled-bezier',
+              'control-point-distances': '-50 -50',
+              'control-point-weights': '0 1',
+              'width': 2,
+              'line-color': '#ccc',
+              'target-arrow-color': '#ccc',
+              'target-arrow-shape': 'triangle'
+            }
+          }]
+        });
+        </script>
+
+
+    </body>
+</html>
