@@ -17,55 +17,8 @@
         var cy = cytoscape({
           container: document.getElementById('cy'),
           elements: {
-            nodes: [{
-              data: {
-                id: 'mi',
-                title: 'mi'
-              },
-              position: {x: 0, y: 0}
-            }, {
-              data: {
-                id: 'klama',
-                title: 'klama',
-              },
-              position: {x: 100, y: 0}
-            }, {
-              data: {
-                id: 'le',
-                title: 'le'
-              },
-               position: {x: 200, y: 0}
-            }, {
-              data: {
-                id: 'zarci',
-                title: 'zarci'
-              },
-              position: {x: 300, y: 0}
-            }
-         		],
-            edges: [{
-              data: {
-                id: '1',
-                source: 'mi',
-                target: 'klama',
-                direction: 1,
-              },
-            }, {
-              data: {
-                id: '2',
-                source: 'le',
-                target: 'zarci',
-                direction: 1
-              }
-            }, {
-              data: {
-                id: '3',
-                source: 'zarci',
-                target: 'klama',
-                direction: -1,
-              },
-              style: {'control-point-distances': '50 50'}
-            }]
+            nodes: {{ nodes|tojson }},
+            edges: {{ edges|tojson }}
           },
           layout: {
             name: 'preset'
