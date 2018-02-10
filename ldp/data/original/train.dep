@@ -258,12 +258,18 @@
 4	cu	5	CU
 5	tavla	0	ROOT
 
+# Example 2.95
 1	le	3	LE
 2	vi	3	TENSE
 3	tavla	6	P1
 4	cu	6	CU
 5	ba	6	TENSE
 6	klama	0	ROOT
+
+# Example 5.1
+1	do	2	P1
+2	mamta	0	ROOT
+3	mi	2	P2
 
 # ID	FORM	HEAD	DEPREL
 # Lojban Crash Course Lesson 1

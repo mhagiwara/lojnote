@@ -1,3 +1,9 @@
+"""Script to evaluate dependency parsing hypothesis against answer.
+Currently the following metrics are supported:
+    UAS: unlabeled attachment score: percentage of words that are assigned correct parents
+    LAS: labeled attachment score: percentage of words that are assigned correct parents and label
+"""
+
 from ldp.corpus_reader import read_conllx_corpus
 from collections import Counter
 
