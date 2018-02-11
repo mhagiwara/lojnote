@@ -1,9 +1,18 @@
+data:
+  container_name: lojnote-data
+  image: busybox
+  stdin_open: true
+  tty: false
+  volumes:
+    - .:/home/jbopre/lojnote
+  command: /bin/sh
+
 webserver:
   container_name: lojnote-webserver
   build: webserver
   tty: false
-  # volumes_from:
-  #   - data
+  volumes_from:
+    - data
   ports:
     - "5000:5000"
   # links:

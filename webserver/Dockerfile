@@ -9,8 +9,6 @@ RUN useradd -d /home/jbopre -m jbopre
 
 RUN pip install Flask
 
-ADD . /home/jbopre/lojnote/webserver
-
 USER jbopre
 
 EXPOSE 5000
