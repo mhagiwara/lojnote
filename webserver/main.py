@@ -1,13 +1,16 @@
 # from ldp.depparser import parse as ldp_parse
 
+import models.db as db
 from flask import Flask, render_template, send_from_directory
 app = Flask(__name__)
 
 
 @app.route("/")
 def hello():
-    return "Hello World!"
 
+    session = db.DBSession()
+    result = session.execute('SELECT * FROM users;')
+    return str(list(result))
 
 @app.route('/user/<username>')
 def show_user_profile(username):

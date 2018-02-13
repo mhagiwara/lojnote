@@ -1,13 +1,16 @@
 # Lojnote webserver Dockerfile
 
-FROM python:3.6.4
+FROM python:2.7.14
+
+ENV REQ_TXT requirements.txt
 
 RUN apt-get update
 RUN apt-get upgrade -y
 
 RUN useradd -d /home/jbopre -m jbopre
 
-RUN pip install Flask
+COPY $REQ_TXT $REQ_TXT
+RUN pip install -r $REQ_TXT
 
 USER jbopre
 

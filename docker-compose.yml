@@ -7,6 +7,21 @@ data:
     - .:/home/jbopre/lojnote
   command: /bin/sh
 
+db:
+  container_name: lojnote-db
+  image: mysql
+  volumes:
+   - ./db:/docker-entrypoint-initdb.d/
+  environment:
+    MYSQL_ROOT_PASSWORD: jbopre
+    MYSQL_USER: jbopre
+    MYSQL_PASSWORD: jbopre
+    MYSQL_DATABASE: lojnote
+  ports:
+    - "3306:3306"
+  volumes_from:
+    - data
+
 webserver:
   container_name: lojnote-webserver
   build: webserver
@@ -15,5 +30,5 @@ webserver:
     - data
   ports:
     - "5000:5000"
-  # links:
-  #   - mysql:sampleapp-mysql
+  links:
+    - db
