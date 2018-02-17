@@ -1,10 +1,9 @@
 data:
   container_name: lojnote-data
   image: busybox
-  stdin_open: true
   tty: false
   volumes:
-    - .:/home/jbopre/lojnote
+    - .:/code
   command: /bin/sh
 
 db:

@@ -79,14 +79,15 @@ class LDPTestCases(unittest.TestCase):
         self.assertAlmostEquals(0.5, results['UAS'])
         self.assertAlmostEquals(0.0, results['LAS'])
 
-    def test_depparse(self):
-        parse = list(depparser.parse(""))
-        self.assertEqual([], parse)
 
-        sent = list(depparser.parse("ko'a broda"))[0]
-        self.assertEqual(2, len(sent))
-        self.assertEqual("ko'a", sent[0].form)
-        self.assertEqual("broda", sent[1].form)
+def test_depparse():
+    parse = list(depparser.parse(""))
+    assert [] == parse
+
+    sent = list(depparser.parse("ko'a broda"))[0]
+    assert 2 == len(sent)
+    assert "ko'a" == sent[0].form
+    assert "broda" == sent[1].form
 
 
 if __name__ == '__main__':

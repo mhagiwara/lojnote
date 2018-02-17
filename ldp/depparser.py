@@ -1,3 +1,4 @@
+import sys
 import tempfile
 
 from pkg_resources import resource_filename
@@ -39,7 +40,7 @@ def parse(text):
     temp.flush()
 
     # Run MaltParser
-    args = ['-w', 'ldp', '-c', 'ldp-malt', '-i', temp.name, '-m', 'parse']
+    args = ['-w', 'ldp/data', '-c', 'ldp-malt', '-i', temp.name, '-m', 'parse']
     malt_process = Popen(['java', '-jar', _jarfile] + args, stdout=PIPE, stdin=PIPE, stderr=PIPE)
     malt_process.stderr.read()
 
