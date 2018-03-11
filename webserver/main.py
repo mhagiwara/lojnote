@@ -1,6 +1,5 @@
 # from ldp.depparser import parse as ldp_parse
 
-import models.db as db
 from flask import Flask, render_template, send_from_directory
 
 from ldp import depparser
@@ -13,6 +12,7 @@ def hello():
     session = db.DBSession()
     result = session.execute('SELECT * FROM users;')
     return str(list(result))
+
 
 @app.route('/user/<username>')
 def show_user_profile(username):

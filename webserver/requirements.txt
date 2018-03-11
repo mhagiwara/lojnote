@@ -1,4 +1,5 @@
 Flask
+Flask-SQLAlchemy
 mysql-python
 sqlalchemy
 pytest
