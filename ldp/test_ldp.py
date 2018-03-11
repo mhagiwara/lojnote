@@ -1,8 +1,27 @@
 from ldp import camxes
+from ldp.camxes import CamxesNode
 from ldp import depparser
 from ldp.corpus_reader import (DepToken, parse_dep_sent, read_dep_corpus,
                                CONLLXToken, parse_conllx_sent, read_conllx_corpus)
 from ldp.eval import evaluate_sent, evaluate
+
+
+def test_camxes_node():
+    array = ['gismu', ['broda']]
+    node = CamxesNode.create_from_array(array)
+    assert node.label == 'gismu'
+    assert not node.terminal
+    assert len(node.children) == 1
+    assert node.children[0].label == 'broda'
+    assert node.children[0].terminal
+    assert node.children[0].parent == node
+    assert not node.children[0].children
+
+    tagged_words = list(node.to_tagged_words())
+    assert len(tagged_words) == 1
+    assert tagged_words[0] == ('broda', 'gismu')
+
+    assert str(node) == '(gismu broda)'
 
 
 def test_camxes():

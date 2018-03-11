@@ -4,7 +4,7 @@ build:
 
 .PHONY: test
 test:
-	docker-compose run -e PYTHONPATH=/code webserver pytest
+	docker-compose run -e PYTHONPATH=/code webserver pytest -s
 
 .PHONY: run
 run:

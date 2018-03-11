@@ -29,38 +29,38 @@ class CamxesNode(object):
     def create_from_array(cls, subtree):
         """Create a CamxesNode instance from an array representation."""
         assert isinstance(subtree, list)
-        if len(subtree) == 0:
+        if not subtree:
             # empty input
             return None
         elif len(subtree) == 1:
             # terminal nodes (no children)
             return CamxesNode(children=[], label=subtree[0], terminal=True)
-        else:
-            assert len(subtree) >= 2
-            children = [cls.create_from_array(child_array)
-                        for child_array in subtree[1:]]
-            node = CamxesNode(children=children, label=subtree[0], terminal=False)
-            for child in children:
-                child.parent = node
 
-            return node
+        assert len(subtree) >= 2
+        children = [cls.create_from_array(child_array)
+                    for child_array in subtree[1:]]
+        node = CamxesNode(children=children, label=subtree[0], terminal=False)
+        for child in children:
+            child.parent = node
+
+        return node
 
     def to_string(self, margin=80, indent=0):
         """Returns an S-expression like recursive string representation of this CamxesNode."""
         s = ' ' * indent
         if self.terminal:
             return s + self.label
-        else:
-            children_reprs = [child.to_string(margin=margin, indent=indent+2)
-                              for child in self.children]
-            s += '(%s\n%s)' % (self.label, '\n'.join(children_reprs))
-            s_flat = re.sub(r'\n +', ' ', s)
-            if len(s_flat) < margin:
-                # If the entire representation fits within a line, return a flat representation.
-                return s_flat
-            else:
-                # Otherwise, return a multi-line representation.
-                return s
+
+        children_reprs = [child.to_string(margin=margin, indent=indent+2)
+                          for child in self.children]
+        s += '(%s\n%s)' % (self.label, '\n'.join(children_reprs))
+        s_flat = re.sub(r'\n +', ' ', s)
+        if len(s_flat) < margin:
+            # If the entire representation fits within a line, return a flat representation.
+            return s_flat
+
+        # Otherwise, return a multi-line representation.
+        return s
 
     def to_tagged_words(self):
         """Yields pairs of (word, selma'o) pairs from this CamxesNode."""
