@@ -1,4 +1,3 @@
-import unittest
 from ldp import camxes
 from ldp import depparser
 from ldp.corpus_reader import (DepToken, parse_dep_sent, read_dep_corpus,
@@ -6,78 +5,79 @@ from ldp.corpus_reader import (DepToken, parse_dep_sent, read_dep_corpus,
 from ldp.eval import evaluate_sent, evaluate
 
 
-class LDPTestCases(unittest.TestCase):
+def test_camxes():
+    tagged_words = list(camxes.tag(""))
+    assert tagged_words == []
 
-    def test_camxes(self):
-        tagged_words = list(camxes.tag(""))
-        self.assertEquals([], tagged_words)
+    tagged_words = list(camxes.tag("ko'a broda"))
+    assert tagged_words == [("ko'a", 'KOhA'), ('broda', 'gismu')]
 
-        tagged_words = list(camxes.tag("ko'a broda"))
-        self.assertEquals([("ko'a", 'KOhA'), ('broda', 'gismu')], tagged_words)
 
-    def test_dep_corpus_reader(self):
-        sent = parse_dep_sent(['1\tmi\t2\tP1', '2\tklama\t0\tROOT'])
+def test_dep_corpus_reader():
+    sent = parse_dep_sent(['1\tmi\t2\tP1', '2\tklama\t0\tROOT'])
 
-        self.assertEquals(2, len(sent))
-        self.assertEquals(DepToken('mi', 'KOhA', 2, 'P1'), sent[0])
-        self.assertEquals(DepToken('klama', 'gismu', 0, 'ROOT'), sent[1])
+    assert len(sent) == 2
+    assert sent[0] == DepToken('mi', 'KOhA', 2, 'P1')
+    assert sent[1] == DepToken('klama', 'gismu', 0, 'ROOT')
 
-        lines = """
-1\tmi\t2\tP1
-2\tklama\t0\tROOT
+    lines = ["1	mi	2	P1",
+             "2	klama	0	ROOT",
+             "",
+             "1	ko'a	2	P1",
+             "2	broda	0	ROOT"]
 
-1\tko'a\t2\tP1
-2\tbroda\t0\tROOT
-        """
-        sents = list(read_dep_corpus(lines.splitlines()))
-        self.assertEquals(2, len(sents))
-        self.assertEquals(2, len(sents[0]))
-        self.assertEquals(2, len(sents[1]))
-        self.assertEquals(DepToken("ko'a", 'KOhA', 2, 'P1'), sents[1][0])
-        self.assertEquals(DepToken('broda', 'gismu', 0, 'ROOT'), sents[1][1])
+    sents = list(read_dep_corpus(lines))
+    assert len(sents) == 2
+    assert len(sents[0]) == 2
+    assert len(sents[1]) == 2
+    assert sents[1][0] == DepToken("ko'a", 'KOhA', 2, 'P1')
+    assert sents[1][1] == DepToken('broda', 'gismu', 0, 'ROOT')
 
-    def test_conllx_corpus_reader(self):
-        sent_str = "1	mi	_	KOhA	KOhA	_	2	P1	_	_"
-        sent = parse_conllx_sent([sent_str])
-        self.assertEquals(1, len(sent))
-        token = CONLLXToken(form='mi', lemma='_', cpostag='KOhA', postag='KOhA', feats='_',
-                            head=2, deprel='P1', phead='_', pdeprel='_')
-        self.assertEquals(token, sent[0])
 
-        lines = """
-1	broda	_	gismu	gismu	_	0	ROOT	_	_
+def test_conllx_corpus_reader():
+    sent_str = "1	mi	_	KOhA	KOhA	_	2	P1	_	_"
+    sent = parse_conllx_sent([sent_str])
+    assert len(sent) == 1
+    token = CONLLXToken(form='mi', lemma='_', cpostag='KOhA', postag='KOhA', feats='_',
+                        head=2, deprel='P1', phead='_', pdeprel='_')
+    assert sent[0] == token
 
-1	brode	_	gismu	gismu	_	0	ROOT	_	_
-"""
-        sents = list(read_conllx_corpus(lines.splitlines()))
-        self.assertEquals(2, len(sents))
-        self.assertEquals(1, len(sents[0]))
-        self.assertEquals(1, len(sents[1]))
-        self.assertEquals(CONLLXToken(form='broda', lemma='_', cpostag='gismu', postag='gismu',
-                          feats='_', head=0, deprel='ROOT', phead='_', pdeprel='_'),
-                          sents[0][0])
-        self.assertEquals(CONLLXToken(form='brode', lemma='_', cpostag='gismu', postag='gismu',
-                          feats='_', head=0, deprel='ROOT', phead='_', pdeprel='_'),
-                          sents[1][0])
+    lines = ["1	broda	_	gismu	gismu	_	0	ROOT	_	_",
+             "",
+             "1	brode	_	gismu	gismu	_	0	ROOT	_	_"]
 
-    def test_eval(self):
-        ans_str = ["1	mi	_	KOhA	KOhA	_	2	P1	_	_",
-                   "2	broda	_	gismu	gismu	_	0	ROOT	_	_"]
-        sys_str = ["1	mi	_	KOhA	KOhA	_	1	PX	_	_",
-                   "2	broda	_	gismu	gismu	_	0	ROOTX	_	_"]
+    sents = list(read_conllx_corpus(lines))
+    assert len(sents) == 2
+    assert len(sents[0]) == 1
+    assert len(sents[1]) == 1
 
-        ans_sent = parse_conllx_sent(ans_str)
-        sys_sent = parse_conllx_sent(sys_str)
-        stats = evaluate_sent(ans_sent, sys_sent)
-        self.assertEquals(2, stats['num_tokens'])
-        self.assertEquals(1, stats['unlabeled_matches'])
-        self.assertEquals(0, stats['labeled_matches'])
+    token = CONLLXToken(form='broda', lemma='_', cpostag='gismu', postag='gismu',
+                        feats='_', head=0, deprel='ROOT', phead='_', pdeprel='_')
+    assert sents[0][0] == token
 
-        ans_corpus = list(read_conllx_corpus(ans_str))
-        sys_corpus = list(read_conllx_corpus(sys_str))
-        results = evaluate(ans_corpus, sys_corpus)
-        self.assertAlmostEquals(0.5, results['UAS'])
-        self.assertAlmostEquals(0.0, results['LAS'])
+    token = CONLLXToken(form='brode', lemma='_', cpostag='gismu', postag='gismu',
+                        feats='_', head=0, deprel='ROOT', phead='_', pdeprel='_')
+    assert sents[1][0] == token
+
+
+def test_eval():
+    ans_str = ["1	mi	_	KOhA	KOhA	_	2	P1	_	_",
+               "2	broda	_	gismu	gismu	_	0	ROOT	_	_"]
+    sys_str = ["1	mi	_	KOhA	KOhA	_	1	PX	_	_",
+               "2	broda	_	gismu	gismu	_	0	ROOTX	_	_"]
+
+    ans_sent = parse_conllx_sent(ans_str)
+    sys_sent = parse_conllx_sent(sys_str)
+    stats = evaluate_sent(ans_sent, sys_sent)
+    assert stats['num_tokens'] == 2
+    assert stats['unlabeled_matches'] == 1
+    assert stats['labeled_matches'] == 0
+
+    ans_corpus = list(read_conllx_corpus(ans_str))
+    sys_corpus = list(read_conllx_corpus(sys_str))
+    results = evaluate(ans_corpus, sys_corpus)
+    assert results['UAS'] == 0.5
+    assert results['LAS'] == 0.0
 
 
 def test_depparse():
@@ -88,7 +88,3 @@ def test_depparse():
     assert 2 == len(sent)
     assert "ko'a" == sent[0].form
     assert "broda" == sent[1].form
-
-
-if __name__ == '__main__':
-    unittest.main()
