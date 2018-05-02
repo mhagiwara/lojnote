@@ -7,11 +7,8 @@ app = Flask(__name__)
 
 
 @app.route("/")
-def hello():
-
-    session = db.DBSession()
-    result = session.execute('SELECT * FROM users;')
-    return str(list(result))
+def home():
+    return 'Lojnote webserver is running :)'
 
 
 @app.route('/user/<username>')
