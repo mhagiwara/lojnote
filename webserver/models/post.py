@@ -32,3 +32,8 @@ def add_post(session, user_id, body=None):
 def get_post(session, post_id):
     post = session.query(Post).filter(Post.id == post_id).first()
     return post
+
+
+def iter_all_posts_for_user(session, user_id):
+    for post in session.query(Post).filter(Post.user_id == user_id).all():
+        yield post
